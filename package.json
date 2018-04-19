@@ -1,0 +1,23 @@
+{
+  "name": "alt_slider",
+  "version": "0.0.1",
+  "description": "Slider for list of news",
+  "main": "index.html",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trixwell/altSlider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Trixwell/altSlider/issues"
+  },
+  "homepage": "https://github.com/Trixwell/altSlider#readme"
+}
