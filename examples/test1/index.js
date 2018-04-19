@@ -1,9 +1,7 @@
-(function($) {
-    // start
-    $(function() {
-        $("#block").altSlider({
-            url: 'test.json'
-        });
-    });
-})(jQuery);
-
+$(function () {
+    $(".block").altSlider(
+        {
+            url: '/examples/test1/test.json'
+        }
+    );
+});
