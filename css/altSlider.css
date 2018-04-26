@@ -1,10 +1,17 @@
+/*body {*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*margin-top: 200px;*/
+/*}*/
+
 .block {
     width: 630px;
     float: left;
 }
 
 .alt-slider {
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .alt-slider > .body {
@@ -15,8 +22,28 @@
 
 .alt-slider > .body > .item {
     width: 210px;
+    text-decoration: none;
+    color: black;
+    margin: 15px 0;
+}
+
+.alt-slider > .body > .item > .img-block {
+    margin-bottom: 10px;
+}
+
+.alt-slider > .body > .item > .img-block span {
+    font-family: "Helvetica Neue", Helvetica ,Arial, sans-serif;
 }
 
 .alt-slider > .body > .item > .img-block > img {
     width: 200px;
+}
+
+
+/*SCROLLBAR*/
+
+.scroll_bar {
+    border: 1px solid red;
+    left: 0;
+    position: relative;
 }
