@@ -48,6 +48,7 @@ $.fn.altSlider = function (userConfig) {
         $(this).append(scroll_wrapper);
         scroll_wrapper.append(scroll_bar);
 
+
         $.ajax({
             url: config.url,
             type: 'post',
@@ -72,6 +73,13 @@ $.fn.altSlider = function (userConfig) {
                                     .attr('src', el.img_src)
                             )
                     );
+
+                    item.append(
+                        $('<p />')
+                            .addClass('time')
+                            .html(el.create_time)
+                    );
+
                     item.append(
                         $('<span />').html(el.title)
                     );

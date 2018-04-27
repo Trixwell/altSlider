@@ -1,10 +1,3 @@
-/*body {*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*margin-top: 200px;*/
-/*}*/
-
 .block {
     width: 630px;
     float: left;
@@ -18,11 +11,13 @@
     position: relative;
     left: 0;
     display: inline-flex;
+    text-align: center;
 }
 
 .alt-slider > .body > .item {
     width: 210px;
     text-decoration: none;
+    text-align: left;
     color: black;
     margin: 15px 0;
 }
@@ -31,19 +26,45 @@
     margin-bottom: 10px;
 }
 
-.alt-slider > .body > .item > .img-block span {
-    font-family: "Helvetica Neue", Helvetica ,Arial, sans-serif;
+.alt-slider > .body > .item span,
+.alt-slider > .body > .item p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 .alt-slider > .body > .item > .img-block > img {
     width: 200px;
 }
 
+.alt-slider > .body > .item p {
+    font-size: 11px;
+}
+
+.alt-slider > .body > .item:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.alt-slider > .body > .item:hover img {
+    opacity: .7;
+    transition: .8s;
+}
 
 /*SCROLLBAR*/
 
 .scroll_bar {
-    border: 1px solid red;
+     background-color: #333;
+    height: 2px;
     left: 0;
     position: relative;
+}
+
+.scroll_wrapper {
+    background: rgba(0,0,0, 0.3);
+    opacity: 0;
+    transition: 1s;
+}
+
+.block:hover .scroll_wrapper {
+    opacity: 1;
+    transition: 1s;
 }
