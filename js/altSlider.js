@@ -14,7 +14,6 @@ $.fn.altSlider = function (userConfig) {
             let item_width = $(this).find('.item').width();
             let total_width = $(this).width();
             let wrapper_width = $(this).parent().find('.scroll_wrapper').width();
-            let scroll_bar_width = $(this).find('.scroll_bar').width();
             let item_length = $(this).find('.item').length;
             let left_side = wrapper_width / item_length;
             let scrollbar_left_size = parseInt($(this).parent().find('.scroll_bar').css('left'));
