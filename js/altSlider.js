@@ -1,8 +1,10 @@
 $.fn.altSlider = function (userConfig) {
     let config = $.extend({}, {
         url: '',
-        rawData: []
+        rawData: [],
+        dynamicReload: false
     }, userConfig);
+
 
     this.each(function () {
         let root_el = $('<div />').addClass('body');
@@ -10,6 +12,8 @@ $.fn.altSlider = function (userConfig) {
             .addClass('alt-slider')
             .append(root_el);
         $(this).append(slider);
+
+        let self = this;
 
         slider[0].addEventListener('wheel', function (e) {
             let item_width = $(this).find('.item').width();
@@ -48,12 +52,17 @@ $.fn.altSlider = function (userConfig) {
         $(this).append(scroll_wrapper);
         scroll_wrapper.append(scroll_bar);
 
-        this.runAJAX = function() {
+        this.runAJAX = function (callback) {
             $.ajax({
                 url: config.url,
                 type: 'post',
                 dataType: 'json',
-                success: this.handleData
+                success: function (res) {
+                    self.handleData(res);
+                    if (callback) {
+                        callback();
+                    }
+                }
             });
         };
 
@@ -62,7 +71,7 @@ $.fn.altSlider = function (userConfig) {
             let elem_width = wrapper_width / res.length;
 
             $(scroll_bar).css('width', elem_width + 'px');
-
+            $(root_el).html('');
             res.forEach(function (el) {
                 let item = $('<a />')
                     .addClass('item')
@@ -90,12 +99,21 @@ $.fn.altSlider = function (userConfig) {
 
                 $(root_el).append(item);
             });
+
         };
 
-        if (config.rawData.length > 0 ) {
-          this.handleData(config.rawData);
+        if (config.rawData.length > 0) {
+            this.handleData(config.rawData);
         } else {
             this.runAJAX();
+        }
+
+        if (config.dynamicReload) {
+            setTimeout(function reload() {
+                self.runAJAX(function () {
+                    setTimeout(reload, config.dynamicReload);
+                });
+            }, config.dynamicReload);
         }
 
     });
