@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.block {
+    width: 630px;
+    float: left;
+}
+
+.alt-slider > .body > .item > .img-block > img {
+    height: 152px;
+}

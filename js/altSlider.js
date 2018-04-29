@@ -1,6 +1,7 @@
 $.fn.altSlider = function (userConfig) {
     let config = $.extend({}, {
-        url: ''
+        url: '',
+        rawData: []
     }, userConfig);
 
     this.each(function () {
@@ -47,46 +48,56 @@ $.fn.altSlider = function (userConfig) {
         $(this).append(scroll_wrapper);
         scroll_wrapper.append(scroll_bar);
 
+        this.runAJAX = function() {
+            $.ajax({
+                url: config.url,
+                type: 'post',
+                dataType: 'json',
+                success: this.handleData
+            });
+        };
 
-        $.ajax({
-            url: config.url,
-            type: 'post',
-            dataType: 'json',
-            success: function (res) {
-                let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
-                let elem_width = wrapper_width / res.length;
+        this.handleData = function (res) {
+            let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
+            let elem_width = wrapper_width / res.length;
 
-                $(scroll_bar).css('width', elem_width + 'px');
+            $(scroll_bar).css('width', elem_width + 'px');
 
-                res.forEach(function (el) {
-                    let item = $('<a />')
-                        .addClass('item')
-                        .attr('href', el.src)
-                    ;
+            res.forEach(function (el) {
+                let item = $('<a />')
+                    .addClass('item')
+                    .attr('href', el.src)
+                ;
 
-                    item.append(
-                        $('<div />')
-                            .addClass('img-block')
-                            .append(
-                                $('<img />')
-                                    .attr('src', el.img_src)
-                            )
-                    );
+                item.append(
+                    $('<div />')
+                        .addClass('img-block')
+                        .append(
+                            $('<img />')
+                                .attr('src', el.img_src)
+                        )
+                );
 
-                    item.append(
-                        $('<p />')
-                            .addClass('time')
-                            .html(el.create_time)
-                    );
+                item.append(
+                    $('<p />')
+                        .addClass('time')
+                        .html(el.create_time)
+                );
 
-                    item.append(
-                        $('<span />').html(el.title)
-                    );
+                item.append(
+                    $('<span />').html(el.title)
+                );
 
-                    $(root_el).append(item);
-                });
-            }
-        });
+                $(root_el).append(item);
+            });
+        };
+
+        if (config.rawData.length > 0 ) {
+          this.handleData(config.rawData);
+        } else {
+            this.runAJAX();
+        }
+
     });
 
     return this;

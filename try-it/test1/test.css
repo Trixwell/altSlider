@@ -23,7 +23,10 @@ body {
     background-color: black;
     padding: 60px;
     border-radius: 30px;
+    width: 630px;
+    float: left;
 }
+
 .scroll_wrapper {
     opacity: 1;
 }
