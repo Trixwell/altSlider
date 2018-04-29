@@ -2,7 +2,8 @@ $.fn.altSlider = function (userConfig) {
     let config = $.extend({}, {
         url: '',
         rawData: [],
-        dynamicReload: false
+        dynamicReload: false,
+        displayScroll: true
     }, userConfig);
 
 
@@ -51,6 +52,10 @@ $.fn.altSlider = function (userConfig) {
 
         $(this).append(scroll_wrapper);
         scroll_wrapper.append(scroll_bar);
+
+        if (!config.displayScroll) {
+            $(scroll_wrapper).css('display', 'none');
+        }
 
         this.runAJAX = function (callback) {
             $.ajax({
