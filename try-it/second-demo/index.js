@@ -1,7 +1,7 @@
 $(function () {
     $(".block").altSlider(
         {
-            url: '/try-it/test1/test.json'
+            url: '/try-it/second-demo/second-demo.json'
         }
     );
 });
