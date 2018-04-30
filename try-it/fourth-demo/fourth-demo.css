@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.scroll_wrapper {
+    height: 6px;
+    border-radius: 20px;
+    opacity: 1;
+    background-color: #FAFAFA;
+}
+
+.scroll_bar {
+    height: 6px;
+    background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+}
+
+.block {
+    background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+    background-blend-mode: screen;
+    padding: 60px;
+    width: 629px;
+    float: left;
+}
+
+.alt-slider > .body > .item,
+.alt-slider > .body > .item:hover {
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.alt-slider > .body > .item > .img-block > img {
+    height: 192px;
+    width: 200px;
+}
+
