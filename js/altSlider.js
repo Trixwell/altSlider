@@ -93,6 +93,12 @@ $.fn.altSlider = function (userConfig) {
                 );
 
                 item.append(
+                    $('<div/>')
+                        .addClass('header_wrapper')
+                        .html(el.header)
+                );
+
+                item.append(
                     $('<p />')
                         .addClass('time')
                         .html(el.create_time)
