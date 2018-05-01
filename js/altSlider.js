@@ -21,31 +21,11 @@ $.fn.altSlider = function (userConfig) {
         let self = this;
 
         slider[0].addEventListener('wheel', function (e) {
-            let total_width = $(this).width();
-            let left_side = scroll_bar.width();
-            let scrollbar_left_size = parseInt($(this).parent().find('.scroll_bar').css('left'));
-
             if (e.deltaY < 0) {
-                left_side *= -1;
-                self.moveLeft();
+                self.moveLeft()
             } else {
                 self.moveRight();
             }
-
-            let left_size_bar = scrollbar_left_size + left_side;
-            if (left_size_bar < 0) {
-                left_size_bar = 0;
-            }
-
-            if (left_size_bar > (total_width - left_side)) {
-                left_size_bar = total_width - left_side;
-            }
-
-            $(this)
-                .parent()
-                .find('.scroll_bar')
-                .css('left', left_size_bar);
-
         });
 
         let scroll_wrapper = $('<div />')
@@ -78,6 +58,20 @@ $.fn.altSlider = function (userConfig) {
             this.runAJAX(function (res) {
                 self.handleData(res, true);
             });
+        };
+
+        this.moveScroll = function (is_left) {
+            let left_side = scroll_bar.width();
+
+            if (is_left) {
+                left_side *= -1;
+            }
+
+            left_size_bar = current_position * left_side;
+            $(this)
+                .parent()
+                .find('.scroll_bar')
+                .css('left', left_size_bar);
         };
 
         this.display = function (res) {
@@ -125,7 +119,9 @@ $.fn.altSlider = function (userConfig) {
             }
 
             current_position++;
-            this.updateScreen();
+            this
+                .updateScreen()
+                .moveScroll(false);
         };
 
         this.moveLeft = function () {
@@ -134,7 +130,9 @@ $.fn.altSlider = function (userConfig) {
             }
 
             current_position--;
-            this.updateScreen();
+            this
+                .updateScreen()
+                .moveScroll(true);
         };
 
         this.handleData = function (res, is_move) {
@@ -152,6 +150,7 @@ $.fn.altSlider = function (userConfig) {
 
         this.updateScreen = function () {
             this.display(elements.slice(current_position, current_position + config.display_elements_count));
+            return this;
         };
 
         if (config.rawData.length > 0) {
