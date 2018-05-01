@@ -36,10 +36,12 @@ body {
     border-radius: 40px;
     border: 1px solid black;
     float: left;
+    height: 300px;
 }
 
 .alt-slider > .body {
     align-items: center;
+    height: 300px;
 }
 
 .alt-slider > .body > .item,

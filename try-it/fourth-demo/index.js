@@ -1,7 +1,7 @@
 $(function () {
     $(".block").altSlider(
         {
-            url: '/try-it/fourth-demo/fourth#FAFAFA-demo.json'
+            url: '/try-it/fourth-demo/fourth-demo.json'
         }
     );
 });

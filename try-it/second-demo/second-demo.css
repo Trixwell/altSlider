@@ -5,6 +5,7 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-top: 200px;
+    overflow: hidden;
 }
 
 .scroll_wrapper {

@@ -3,7 +3,9 @@ $.fn.altSlider = function (userConfig) {
         url: '',
         rawData: [],
         dynamicReload: false,
-        displayScroll: true
+        displayScroll: true,
+        display_elements_count: 3,
+        move_right_steps: 1
     }, userConfig);
 
 
@@ -13,20 +15,21 @@ $.fn.altSlider = function (userConfig) {
             .addClass('alt-slider')
             .append(root_el);
         $(this).append(slider);
+        let elements = [];
+        let current_position = -1;
 
         let self = this;
 
         slider[0].addEventListener('wheel', function (e) {
-            let item_width = $(this).find('.item').width();
             let total_width = $(this).width();
-            let wrapper_width = $(this).parent().find('.scroll_wrapper').width();
-            let item_length = $(this).find('.item').length;
-            let left_side = wrapper_width / item_length;
+            let left_side = scroll_bar.width();
             let scrollbar_left_size = parseInt($(this).parent().find('.scroll_bar').css('left'));
 
             if (e.deltaY < 0) {
-                item_width *= -1;
                 left_side *= -1;
+                self.moveLeft();
+            } else {
+                self.moveRight();
             }
 
             let left_size_bar = scrollbar_left_size + left_side;
@@ -38,10 +41,11 @@ $.fn.altSlider = function (userConfig) {
                 left_size_bar = total_width - left_side;
             }
 
-            $(this).parent().find('.scroll_bar')
+            $(this)
+                .parent()
+                .find('.scroll_bar')
                 .css('left', left_size_bar);
 
-            this.scrollLeft = this.scrollLeft + item_width;
         });
 
         let scroll_wrapper = $('<div />')
@@ -63,19 +67,20 @@ $.fn.altSlider = function (userConfig) {
                 type: 'post',
                 dataType: 'json',
                 success: function (res) {
-                    self.handleData(res);
                     if (callback) {
-                        callback();
+                        callback(res);
                     }
                 }
             });
         };
 
-        this.handleData = function (res) {
-            let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
-            let elem_width = wrapper_width / res.length;
+        this.loadAJAX = function () {
+            this.runAJAX(function (res) {
+                self.handleData(res, true);
+            });
+        };
 
-            $(scroll_bar).css('width', elem_width + 'px');
+        this.display = function (res) {
             $(root_el).html('');
             res.forEach(function (el) {
                 let item = $('<a />')
@@ -83,14 +88,16 @@ $.fn.altSlider = function (userConfig) {
                     .attr('href', el.src)
                 ;
 
-                item.append(
-                    $('<div />')
-                        .addClass('img-block')
-                        .append(
-                            $('<img />')
-                                .attr('src', el.img_src)
-                        )
-                );
+                if (el.img_src) {
+                    item.append(
+                        $('<div />')
+                            .addClass('img-block')
+                            .append(
+                                $('<img />')
+                                    .attr('src', el.img_src)
+                            )
+                    );
+                }
 
                 item.append(
                     $('<div/>')
@@ -110,18 +117,55 @@ $.fn.altSlider = function (userConfig) {
 
                 $(root_el).append(item);
             });
+        };
 
+        this.moveRight = function () {
+            if (current_position >= (elements.length - config.display_elements_count)) {
+                current_position = elements.length - config.display_elements_count - 1;
+            }
+
+            current_position++;
+            this.updateScreen();
+        };
+
+        this.moveLeft = function () {
+            if (current_position <= 0) {
+                current_position = 1;
+            }
+
+            current_position--;
+            this.updateScreen();
+        };
+
+        this.handleData = function (res, is_move) {
+            elements = res;
+            let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
+            let elem_width = Math.round(wrapper_width / (elements.length - config.display_elements_count + 1) + 1);
+            $(scroll_bar).css('width', elem_width + 'px');
+
+            if (is_move) {
+                this.moveRight();
+            }
+
+            return this;
+        };
+
+        this.updateScreen = function () {
+            this.display(elements.slice(current_position, current_position + config.display_elements_count));
         };
 
         if (config.rawData.length > 0) {
-            this.handleData(config.rawData);
+            this.handleData(config.rawData, true);
         } else {
-            this.runAJAX();
+            this.loadAJAX();
         }
 
         if (config.dynamicReload) {
             setTimeout(function reload() {
-                self.runAJAX(function () {
+                self.runAJAX(function (res) {
+                    self
+                        .handleData(res, false)
+                        .updateScreen();
                     setTimeout(reload, config.dynamicReload);
                 });
             }, config.dynamicReload);
