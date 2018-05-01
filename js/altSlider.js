@@ -5,7 +5,8 @@ $.fn.altSlider = function (userConfig) {
         dynamicReload: false,
         displayScroll: true,
         display_elements_count: 3,
-        move_right_steps: 1
+        move_right_steps: 1,
+        auto_scroll: false
     }, userConfig);
 
 
@@ -168,6 +169,12 @@ $.fn.altSlider = function (userConfig) {
                     setTimeout(reload, config.dynamicReload);
                 });
             }, config.dynamicReload);
+        }
+
+        if (config.auto_scroll) {
+            setInterval(function() {
+                self.moveRight();
+            }, config.auto_scroll);
         }
 
     });
