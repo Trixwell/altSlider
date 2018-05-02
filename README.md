@@ -10,4 +10,4 @@ AltSlider is a customizable jQuery slider plugin. Features include:
 
 ## Installization
 
-npm: 'npm install jquery'
+npm: `npm install jquery`
