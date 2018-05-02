@@ -49,7 +49,7 @@ $(function () {
 });
 ```
 
-For auto scroll add **auto_scroll** property in your JS file where it's attribute is milliseconds throud which your slider will scroll.
+For auto scroll add **auto_scroll** property in your JS file where it's attribute is milliseconds through which your slider will scroll.
 
 ```html
 $(function () {
@@ -57,6 +57,19 @@ $(function () {
         {
             url: '/try-it/auto-scroll/auto-scroll.json',
             auto_scroll: 1000
+        }
+    );
+});
+```
+
+For turning of scrollbar add **displayScroll** property in your JS file where it's boolean attribute (false) means that you don't want to use scrollbar.
+
+```html
+$(function () {
+    $(".block").altSlider(
+        {
+            url: '/try-it/no-scroll/test.json',
+            displayScroll: false
         }
     );
 });
