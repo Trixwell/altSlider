@@ -110,3 +110,5 @@ $(function () {
 
 ```
 
+**Raw data format and server responce data format
+
