@@ -12,6 +12,8 @@ AltSlider is a customizable jQuery slider plugin. Features include:
 
 Load jQuery and AltSlider: `npm i alt-slide`
 
+Your default project should insclude next files: html, css, js and json.
+
 Mention this scripts in your HTML file:
 
 ```html
@@ -24,3 +26,4 @@ Mention this stylesheet in your HTML file:
 ```html
 <link rel="stylesheet" href="node_modules/alt-slider/css/altSlider.css">
 ```
+
