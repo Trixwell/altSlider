@@ -8,4 +8,6 @@ AltSlider is a customizable jQuery slider plugin. Features include:
 * Elastic configuration: turn of scrollbar or AJAX requests
 * Flexible CSS stylization
 
-## Usage
+## Installization
+
+npm: 'npm install jquery'
