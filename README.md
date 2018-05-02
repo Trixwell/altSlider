@@ -27,3 +27,14 @@ Mention this stylesheet in your HTML file:
 <link rel="stylesheet" href="node_modules/alt-slider/css/altSlider.css">
 ```
 
+At first your default JS file should look this way:
+```html
+$(function () {
+    $(".block").altSlider(
+        {
+            url: 'index.json',
+            display_elements_count: 4
+        }
+    );
+});
+```
