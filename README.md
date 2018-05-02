@@ -135,3 +135,5 @@ Format of data for url file must include array of data with next properties, whi
 
 ## License
 
+GPL 3
+https://opensource.org/licenses/GPL-3.0
