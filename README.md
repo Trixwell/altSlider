@@ -75,3 +75,40 @@ $(function () {
 });
 ```
 
+For handling data without using AJAX requests, add it in your JS file with **rawData** property.
+
+
+```html
+$(function () {
+    $(".block").altSlider(
+        {
+            rawData:
+                [
+                    {
+                        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+                        "body": "Test body 1",
+                        "create_time": "2018-01-01 00:00:01",
+                        "img_src": "http://s5.uploads.ru/t/0hYTP.jpg",
+                        "src": "https://google.com"
+                    },
+                    {
+                        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+                        "body": "Test body 2",
+                        "create_time": "2018-02-02 00:23:01",
+                        "img_src": "http://sa.uploads.ru/t/xqseC.jpg",
+                        "src": "https://google.com"
+                    },
+                    {
+                        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+                        "body": "Test body 3",
+                        "create_time": "2018-03-02 00:23:01",
+                        "img_src": "http://s3.uploads.ru/t/ecM5L.jpg",
+                        "src": "https://google.com"
+                    }
+                ]
+            }
+    );
+});
+
+```
+
