@@ -127,9 +127,9 @@ Format of data for url file must include array of data with next properties, whi
 ]
 ```
 * "header" is a header of your item block.
-* "body" is a subheader of your item block.
-* "title" is a paragraph with short description of your item block.
+* "body" is a subheader.
+* "title" is a paragraph with short description.
 * "create_time" is a date with info when your paragraph was posted.
-* "img_src" is a source of picture which could be in your block.
-* "src" is an external link for your item block.
+* "img_src" is a source of picture which could be.
+* "src" is an external link.
 
