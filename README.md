@@ -49,4 +49,16 @@ $(function () {
 });
 ```
 
+For auto scroll add **auto_scroll** property in your JS file where it's attribute is milliseconds throud which your slider will scroll.
+
+```html
+$(function () {
+    $(".block").altSlider(
+        {
+            url: '/try-it/auto-scroll/auto-scroll.json',
+            auto_scroll: 1000
+        }
+    );
+});
+```
 
