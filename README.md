@@ -38,7 +38,7 @@ $(function () {
 });
 ```
 For dynamic reload add this property in your JS file where it's attribute is milliseconds trough which your slider data will reload.
-``html
+```html
 $(function () {
     $(".block").altSlider(
         {
@@ -47,6 +47,6 @@ $(function () {
         }
     );
 });
-``
+```
 
 
