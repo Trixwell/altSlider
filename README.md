@@ -1,11 +1,10 @@
 # altSlider
-AltSlider  - это плагин, реализованный с помощью библиотеки jQuery. 
+AltSlider is a customizable jQuery slider plugin. Features include:
 
-Он позволяет следующее:
-- подгружать данные в слайдер с помощью технологии AJAX
-- подгружать готовые данные из json файла
-- использовать динамическую перезагрузку данных без перезагрузки страницы
-- скроллить данные автоматически; вы можете сами настроить частоту прокрутки
-- выключать scrollbar
+* Handle data with AJAX
+* Handle data without using AJAX request
+* Dynamic reload of data (using AJAX)
+* Auto scroll function
+* Elastic configuration: turn of scrollbar or AJAX requests
 
 ## Usage
