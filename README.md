@@ -130,6 +130,6 @@ Format of data for url file must include array of data with next properties, whi
 * "body" is a subheader.
 * "title" is a paragraph with short description.
 * "create_time" is a date with info when your paragraph was posted.
-* "img_src" is a source of picture which could be.
+* "img_src" is a link to image.
 * "src" is an external link.
 
