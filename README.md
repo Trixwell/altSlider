@@ -131,5 +131,5 @@ Format of data for url file must include array of data with next properties, whi
 * "title" is a paragraph with short description of your item block.
 * "create_time" is a date with info when your paragraph was posted.
 * "img_src" is a source of picture which could be in your block.
-* "src" is an anchor for your item block.
+* "src" is an external link for your item block.
 
