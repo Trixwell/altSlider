@@ -32,8 +32,21 @@ At first your default JS file should look this way:
 $(function () {
     $(".block").altSlider(
         {
-            url: 'index.json'
+            url: 'your-json-file.json'
         }
     );
 });
 ```
+For dynamic reload add this property in your JS file where it's attribute is milliseconds trough which your slider data will reload.
+``html
+$(function () {
+    $(".block").altSlider(
+        {
+            url: '/try-it/dynamic-reload/test.json',
+            dynamicReload: 3000
+        }
+    );
+});
+``
+
+
