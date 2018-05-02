@@ -32,7 +32,7 @@ At first your default JS file should look this way:
 $(function () {
     $(".block").altSlider(
         {
-            url: 'index.json',
+            url: 'index.json'
         }
     );
 });
