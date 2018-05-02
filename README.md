@@ -117,11 +117,19 @@ Format of data for url file must include massif of data with next properties, wh
 ```html
 [
   {
-    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+    "title": "A five-year study of Thwaites Glacier will be one of the biggest projects ever in Antarctica.",
     "body": "Test body 1",
-    "create_time": "2018-01-01 00:00:01",
-    "img_src": "http://s5.uploads.ru/t/0hYTP.jpg",
-    "src": "https://google.com"
+    "create_time": "2018-02-02 00:23:01",
+    "header": "UK-US initiative to study mighty Thwaites Glacier",
+    "img_src": "images/2.jpg",
+     "src": "https://google.com"
   }
 ]
 ```
+* "header" is a header of your item block.
+* "body" is a subheader of your item block.
+* "title" is a paragraph with short description of your item block.
+* "create_time" is a date with info while your paragraph was posted.
+* "img_src" is a source of picture which could be in your block.
+* "src" is an anchor for your item block.
+
