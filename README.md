@@ -19,7 +19,7 @@ Mention this scripts in your HTML file:
 <script src="node_modules/jquery/dist/jquery.js"></script>
 ```
 
-Mention this stylesheet in your HTML file
+Mention this stylesheet in your HTML file:
 
 ```html
 <link rel="stylesheet" href="node_modules/alt-slider/css/altSlider.css">
