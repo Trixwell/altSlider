@@ -33,7 +33,6 @@ $(function () {
     $(".block").altSlider(
         {
             url: 'index.json',
-            display_elements_count: 4
         }
     );
 });
