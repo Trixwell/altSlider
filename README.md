@@ -112,3 +112,16 @@ $(function () {
 
 ## Raw data format and server responce data format
 
+Format of data for url file must include massif of data with next properties, which are optional.
+
+```html
+[
+  {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+    "body": "Test body 1",
+    "create_time": "2018-01-01 00:00:01",
+    "img_src": "http://s5.uploads.ru/t/0hYTP.jpg",
+    "src": "https://google.com"
+  }
+]
+```
