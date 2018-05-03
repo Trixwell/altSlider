@@ -26,7 +26,7 @@ Mention this stylesheet in your HTML file:
 ```
 
 At first your default JS file should look this way:
-```html
+```js
 $(function () {
     $(".block").altSlider(
         {
@@ -36,7 +36,7 @@ $(function () {
 });
 ```
 For dynamic reload add **dynamicReload** property in your JS file where it's attribute is milliseconds trough which your slider data will reload.
-```html
+```js
 $(function () {
     $(".block").altSlider(
         {
@@ -49,7 +49,7 @@ $(function () {
 
 For auto scroll add **auto_scroll** property in your JS file where it's attribute is milliseconds through which your slider will scroll.
 
-```html
+```js
 $(function () {
     $(".block").altSlider(
         {
@@ -62,7 +62,7 @@ $(function () {
 
 For turning of scrollbar add **displayScroll** property in your JS file where it's boolean attribute (false) means that you don't want to use scrollbar.
 
-```html
+```js
 $(function () {
     $(".block").altSlider(
         {
@@ -76,7 +76,7 @@ $(function () {
 For handling data without using AJAX requests, add it in your JS file with **rawData** property.
 
 
-```html
+```js
 $(function () {
     $(".block").altSlider(
         {
@@ -114,7 +114,7 @@ $(function () {
 
 Format of data for url file must include array of data with next properties, which are optional.
 
-```html
+```js
 [
   {
     "title": "A five-year study of Thwaites Glacier will be one of the biggest projects ever in Antarctica.",
