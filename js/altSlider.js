@@ -61,14 +61,10 @@ $.fn.altSlider = function (userConfig) {
             });
         };
 
-        this.moveScroll = function (is_left) {
+        this.moveScroll = function () {
             let left_side = scroll_bar.width();
-
-            if (is_left) {
-                left_side *= -1;
-            }
-
             left_size_bar = current_position * left_side;
+
             $(this)
                 .parent()
                 .find('.scroll_bar')
@@ -122,7 +118,7 @@ $.fn.altSlider = function (userConfig) {
             current_position++;
             this
                 .updateScreen()
-                .moveScroll(false);
+                .moveScroll();
         };
 
         this.moveLeft = function () {
@@ -133,7 +129,7 @@ $.fn.altSlider = function (userConfig) {
             current_position--;
             this
                 .updateScreen()
-                .moveScroll(true);
+                .moveScroll();
         };
 
         this.handleData = function (res, is_move) {
