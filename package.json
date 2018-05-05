@@ -1,6 +1,6 @@
 {
-  "name": "alt_slider",
-  "version": "0.1.1",
+  "name": "alt-slider",
+  "version": "0.1.2",
   "description": "Slider for list of news",
   "main": "index.html",
   "dependencies": {
