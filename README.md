@@ -139,6 +139,8 @@ Format of data for url file must include array of data with next properties, whi
 * "img_src" is a link to image.
 * "src" is an external link.
 
+![](https://github.com/Trixwell/altSlider/blob/master/gif/exmpl2.gif)
+
 ## License
 
 GPL 3
