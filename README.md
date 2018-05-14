@@ -35,6 +35,8 @@ $(function () {
     );
 });
 ```
+![](https://github.com/Trixwell/altSlider/blob/master/gif/expml.gif)
+
 For dynamic reload add **dynamicReload** property in your JS file where it's attribute is milliseconds trough which your slider data will reload.
 ```js
 $(function () {
