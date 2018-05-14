@@ -1,7 +1,7 @@
 # altSlider
 
 
-| ![] (https://github.com/Trixwell/altSlider/blob/master/gif/new.gif) |
+![] (https://github.com/Trixwell/altSlider/blob/master/gif/new.gif) 
 AltSlider is a customizable jQuery slider plugin. Features include:
 
 * Handle data with AJAX
