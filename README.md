@@ -75,6 +75,8 @@ $(function () {
 });
 ```
 
+![](https://github.com/Trixwell/altSlider/blob/master/gif/no-scroll.gif)
+
 For handling data without using AJAX requests, add it in your JS file with **rawData** property.
 
 
