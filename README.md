@@ -60,7 +60,7 @@ $(function () {
 });
 ```
 
-![](https://github.com/Trixwell/altSlider/blob/master/gif/auto-scroll.gif)
+							![](https://github.com/Trixwell/altSlider/blob/master/gif/auto-scroll.gif)
 
 For turning of scrollbar add **displayScroll** property in your JS file where it's boolean attribute (false) means that you don't want to use scrollbar.
 
