@@ -6,7 +6,8 @@ $.fn.altSlider = function (userConfig) {
         displayScroll: true,
         display_elements_count: 3,
         move_right_steps: 1,
-        auto_scroll: false
+        auto_scroll: false,
+        vertical: false
     }, userConfig);
 
 
@@ -21,25 +22,31 @@ $.fn.altSlider = function (userConfig) {
 
         let self = this;
 
-        slider[0].addEventListener('wheel', function (e) {
-            if (e.deltaY < 0) {
-                self.moveLeft()
-            } else {
-                self.moveRight();
-            }
-        });
 
-        let scroll_wrapper = $('<div />')
-            .addClass('scroll_wrapper');
+            slider[0].addEventListener('wheel', function (e) {
+                if (e.deltaY < 0) {
+                    self.moveLeft()
+                } else {
+                    self.moveRight();
+                }
+            });
 
-        let scroll_bar = $('<div />')
-            .addClass('scroll_bar');
+            let scroll_wrapper = $('<div />')
+                .addClass('scroll_wrapper');
 
-        $(this).append(scroll_wrapper);
-        scroll_wrapper.append(scroll_bar);
+            let scroll_bar = $('<div />')
+                .addClass('scroll_bar');
+
+            $(this).append(scroll_wrapper);
+            scroll_wrapper.append(scroll_bar);
 
         if (!config.displayScroll) {
             $(scroll_wrapper).css('display', 'none');
+        }
+
+        if (config.vertical === true) {
+            $(scroll_wrapper).css('display', 'none');
+            $(this).css('overflow-y', 'scroll');
         }
 
         this.runAJAX = function (callback) {
@@ -60,6 +67,7 @@ $.fn.altSlider = function (userConfig) {
                 self.handleData(res, true);
             });
         };
+
 
         this.moveScroll = function () {
             let left_side = scroll_bar.width();
@@ -111,6 +119,7 @@ $.fn.altSlider = function (userConfig) {
         };
 
         this.moveRight = function () {
+
             if (current_position >= (elements.length - config.display_elements_count)) {
                 current_position = elements.length - config.display_elements_count - 1;
             }
@@ -174,6 +183,7 @@ $.fn.altSlider = function (userConfig) {
         }
 
     });
+
 
     return this;
 };
