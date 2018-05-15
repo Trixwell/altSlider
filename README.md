@@ -116,7 +116,7 @@ $(function () {
 
 ```
 
-## Raw data format and server responce data format
+## Rawdata format and server responce data format
 
 Format of data for url file must include array of data with next properties, which are optional.
 
@@ -138,6 +138,8 @@ Format of data for url file must include array of data with next properties, whi
 * "create_time" is a date with info when your paragraph was posted.
 * "img_src" is a link to image.
 * "src" is an external link.
+
+![](https://github.com/Trixwell/altSlider/blob/master/gif/exmpl2.gif)
 
 ## License
 
