@@ -6,7 +6,9 @@ AltSlider is a customizable jQuery slider plugin. Features include:
 * Dynamic reload of data (using AJAX)
 * Auto scroll function
 * Elastic configuration: turn of scrollbar or AJAX requests
+* Vertical and horizontal scrollbar
 * Flexible CSS stylization
+
 
 ## Usage
 
@@ -78,6 +80,21 @@ $(function () {
 ```
 
 ![](https://github.com/Trixwell/altSlider/blob/master/gif/no-scroll.gif)
+
+
+For turning on **vertical scroll bar mode** in your JS file mention boolean attribute (true) which means that your scrollbar is vertical.
+```js
+$(function () {
+    $(".block").altSlider(
+        {
+            url: '/try-it/vertical-scroll/vertical-scroll.json',
+            vertical: true
+        }
+    );
+});
+
+
+```
 
 For handling data without using AJAX requests, add it in your JS file with **rawData** property.
 
