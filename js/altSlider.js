@@ -44,9 +44,12 @@ $.fn.altSlider = function (userConfig) {
             $(scroll_wrapper).css('display', 'none');
         }
 
-        if (config.vertical === true) {
+
+        if (config.displayScroll === true && config.vertical === true) {
             $(scroll_wrapper).css('display', 'none');
             $(this).css('overflow-y', 'scroll');
+        } else if(config.displayScroll === false && config.vertical === true) {
+            $(this).css('overflow-y', 'auto');
         }
 
         this.runAJAX = function (callback) {
