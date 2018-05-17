@@ -1,7 +1,5 @@
 body {
     display: flex;
-    justify-content: center;
-    margin-top: 200px;
 }
 
 .block {
@@ -12,7 +10,7 @@ body {
 .alt-slider > .body > .item > .img-block > img {
     height: 152px;
 }
-.vertical-block {
-    height: 200px;
-}
 
+.vertical-block {
+    height: 600px;
+}

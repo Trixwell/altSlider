@@ -8,14 +8,12 @@ body {
 }
 
 .scroll_wrapper {
-    height: 6px;
     border-radius: 20px;
     opacity: 1;
     background-color: #FAFAFA;
 }
 
 .scroll_bar {
-    height: 6px;
     background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
 }
 
@@ -38,3 +36,6 @@ body {
     width: 200px;
 }
 
+.vertical-block {
+    height: 400px;
+}

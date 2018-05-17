@@ -7,7 +7,8 @@ $.fn.altSlider = function (userConfig) {
         display_elements_count: 3,
         move_right_steps: 1,
         auto_scroll: false,
-        vertical: false
+        vertical: false,
+        is_vertical: false
     }, userConfig);
 
 
@@ -44,14 +45,6 @@ $.fn.altSlider = function (userConfig) {
             $(scroll_wrapper).css('display', 'none');
         }
 
-
-        if (config.displayScroll === true && config.vertical === true) {
-            $(scroll_wrapper).css('display', 'none');
-            $(this).css('overflow-y', 'scroll');
-        } else if(config.displayScroll === false && config.vertical === true) {
-            $(this).css('overflow-y', 'auto');
-        }
-
         this.runAJAX = function (callback) {
             $.ajax({
                 url: config.url,
@@ -72,15 +65,73 @@ $.fn.altSlider = function (userConfig) {
         };
 
 
-        this.moveScroll = function () {
-            let left_side = scroll_bar.width();
-            left_size_bar = current_position * left_side;
+        if (config.is_vertical === true) {
 
-            $(this)
-                .parent()
-                .find('.scroll_bar')
-                .css('left', left_size_bar);
-        };
+            this.moveScroll = function () {
+                let left_side = scroll_bar.height();
+                left_size_bar = current_position * left_side;
+
+                $(this)
+                    .parent()
+                    .find('.scroll_bar')
+                    .css('top', left_size_bar);
+
+            };
+
+            this.handleData = function (res, is_move) {
+                elements = res;
+                if (is_move) {
+                    this.moveRight();
+                }
+
+                $(this).addClass('vertical-block');
+                $(this).parent().find('.scroll_wrapper').addClass('vertical_wrapper');
+                $(this).parent().find('.block').css('width', 'auto');
+                $(this).parent().find('.vertical-block').css('display', 'flex');
+                $(this).parent().find('.vertical-block').css('flex-direction', 'row');
+                $(this).parent().find('.body').css('display', 'flex');
+                $(this).parent().find('.body').css('flex-direction', 'column');
+                $(this).parent().find('.alt-slider').css('overflow-y', 'hidden');
+                $(this).parent().find('.scroll-wrapper').css('overflow-y', 'hidden');
+
+                let wrapper_width = $(slider).parent().find('.vertical_wrapper').height();
+
+                let elem_width = Math.round(wrapper_width / (elements.length - config.display_elements_count + 1) + 1);
+
+                $(scroll_bar).css('height', elem_width + 'px');
+
+                return this;
+            };
+
+
+        } else {
+            this.moveScroll = function () {
+                let left_side = scroll_bar.width();
+                left_size_bar = current_position * left_side;
+
+                $(this)
+                    .parent()
+                    .find('.scroll_bar')
+                    .css('left', left_size_bar);
+            };
+
+
+
+            this.handleData = function (res, is_move) {
+                elements = res;
+                let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
+                let elem_width = Math.round(wrapper_width / (elements.length - config.display_elements_count + 1) + 1);
+                $(scroll_bar).css('width', elem_width + 'px');
+
+                if (is_move) {
+                    this.moveRight();
+                }
+
+                return this;
+            };
+
+        }
+
 
         this.display = function (res) {
             $(root_el).html('');
@@ -144,18 +195,7 @@ $.fn.altSlider = function (userConfig) {
                 .moveScroll();
         };
 
-        this.handleData = function (res, is_move) {
-            elements = res;
-            let wrapper_width = $(slider).parent().find('.scroll_wrapper').width();
-            let elem_width = Math.round(wrapper_width / (elements.length - config.display_elements_count + 1) + 1);
-            $(scroll_bar).css('width', elem_width + 'px');
 
-            if (is_move) {
-                this.moveRight();
-            }
-
-            return this;
-        };
 
         this.updateScreen = function () {
             this.display(elements.slice(current_position, current_position + config.display_elements_count));

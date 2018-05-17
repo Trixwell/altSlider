@@ -44,10 +44,8 @@
     transition: .8s;
 }
 
-/*SCROLLBAR*/
-
 .scroll_bar {
-     background-color: #333;
+    background-color: #333;
     height: 2px;
     left: 0;
     position: relative;
@@ -55,7 +53,7 @@
 
 .scroll_wrapper {
     background: rgba(0,0,0, 0.3);
-    opacity: 0;
+    /*opacity: 0;*/
     transition: 1s;
 }
 
@@ -63,3 +61,8 @@
     opacity: 1;
     transition: 1s;
 }
+
+.vertical_wrapper {
+    width: 2px;
+}
+

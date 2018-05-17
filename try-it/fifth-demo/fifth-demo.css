@@ -15,7 +15,6 @@ body {
 }
 
 .scroll_wrapper {
-    height: 6px;
     border-radius: 20px;
     opacity: 1;
     background-color: white;

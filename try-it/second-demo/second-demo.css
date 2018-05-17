@@ -9,7 +9,6 @@ body {
 }
 
 .scroll_wrapper {
-    height: 6px;
     border-radius: 20px;
     opacity: 1;
     background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);;
@@ -44,3 +43,6 @@ body {
     height: 152px;
 }
 
+.vertical-block {
+    height: 800px;
+}

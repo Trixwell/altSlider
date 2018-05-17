@@ -2,7 +2,8 @@ $(function () {
     $(".block").altSlider(
         {
             url: '/try-it/auto-scroll/auto-scroll.json',
-            auto_scroll: 1000
+            auto_scroll: 1000,
+            is_vertical: false
         }
     );
 });
