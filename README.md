@@ -82,18 +82,17 @@ $(function () {
 ![](https://github.com/Trixwell/altSlider/blob/master/gif/no-scroll.gif)
 
 
-For turning on **vertical scroll bar mode** in your JS file mention boolean attribute (true) which means that your scrollbar is vertical. **_All features for horizontal scroll also work for vertical._**
+For turning on **customizable vertical scrollbar mode**  in your JS file mention boolean attribute (true) which means that your scrollbar is vertical. Add your CSS file for stylization. **_All features for horizontal scroll also work for vertical._**
+
 ```js
 $(function () {
     $(".block").altSlider(
         {
             url: '/try-it/vertical-scroll/vertical-scroll.json',
-            vertical: true
+             is_vertical: true
         }
     );
 });
-
-
 ```
 
 For handling data without using AJAX requests, add it in your JS file with **rawData** property.
