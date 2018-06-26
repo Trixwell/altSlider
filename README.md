@@ -132,7 +132,7 @@ $(function () {
 
 ```
 
-## Rawdata format and server responce data format
+## Rawdata format and server response data format
 
 Format of data for url file must include array of data with next properties, which are optional.
 
